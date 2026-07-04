@@ -61,7 +61,7 @@ export function Header({
                             <div className="flex items-center gap-1.5 sm:gap-3">
                                 {appConfig.logoImage ? (
                                     <img src={appConfig.logoImage} alt="Logo"
-                                        className="h-10 w-auto object-contain hover:opacity-80 transition-opacity" />
+                                        className="h-16 w-auto object-contain hover:opacity-80 transition-opacity" />
                                 ) : (
                                     <div className="relative group">
                                         <div className="absolute inset-0 bg-indigo-500 blur-lg opacity-40 group-hover:opacity-60 transition-opacity"></div>
@@ -74,7 +74,7 @@ export function Header({
                                     <div
                                         className="grid transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] grid-rows-[1fr] opacity-100 ml-0">
                                         <span
-                                            className={`text-xl font-bold tracking-tight overflow-hidden hidden sm:block ${isDarkMode ? 'text-white' : 'text-slate-800'}`}>
+                                            className={`text-3xl font-bold tracking-tight overflow-hidden hidden sm:block ${isDarkMode ? 'text-white' : 'text-slate-800'}`}>
                                             {appConfig.logoText}<span
                                                 className="text-indigo-500">{appConfig.logoHighlight}</span>
                                         </span>
