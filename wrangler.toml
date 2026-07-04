@@ -8,7 +8,7 @@ compatibility_date = "2024-12-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "jg-nav-db"
-database_id = "6bcac328-aa2c-4254-88ae-dc86ae9c9620"
+database_id = "477c2f84-97a4-41de-85b9-41a94ea5acf2"
 
 # 环境变量
 [vars]
