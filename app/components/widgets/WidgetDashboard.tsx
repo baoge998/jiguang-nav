@@ -921,7 +921,7 @@ export function WidgetDashboard({ isDarkMode, sitesCount, widgetStyle = 'B', wid
                             {toolsMode === 'todo' && (
                                 <div className="flex-1 flex flex-col h-full relative min-h-0">
                                     {isAddingTodo ? (
-                                        <div className="absolute inset-x-1 -top-16 bottom-auto z-20 bg-slate-800 border border-indigo-500/50 rounded-xl shadow-2xl p-2" style={{ height: '70px' }}>
+                                        <div className="absolute inset-x-1 top-1 z-20 bg-slate-800 border border-indigo-500/50 rounded-xl shadow-2xl p-2" style={{ height: '70px' }}>
                                             <input
                                                 type="text"
                                                 value={newTodo}
@@ -940,13 +940,13 @@ export function WidgetDashboard({ isDarkMode, sitesCount, widgetStyle = 'B', wid
                                             </div>
                                         </div>
                                     ) : null}
-                                    <div className="flex-1 overflow-y-auto custom-scrollbar pr-1 pb-10 min-h-0">
+                                    <div className={`flex-1 flex flex-col ${isAddingTodo ? 'pt-[74px]' : 'justify-center'}`}>
                                         {todos.length > 0 ? (
-                                            <div className="flex flex-col gap-1">
+                                            <div className="grid grid-cols-2 gap-1">
                                                 {todos.map(todo => (
                                                     <div
-                                                        key={todo.id}
-                                                        className="flex items-center gap-2 px-2 py-1.5 bg-white/90 dark:bg-slate-800/90 rounded-lg hover:bg-white dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700 shadow-sm cursor-context-menu"
+    key={todo.id}
+    className="flex items-center gap-2 px-2 h-[60px] rounded-lg bg-white/90 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 shadow-sm hover:border-emerald-500/50 transition-all cursor-context-menu"
                                                         onContextMenu={(e) => handleRightClick(e, todo, 'todo')}
                                                         onTouchStart={() => handleLongPressStart(todo, 'todo')}
                                                         onTouchEnd={handleLongPressEnd}
@@ -971,10 +971,7 @@ export function WidgetDashboard({ isDarkMode, sitesCount, widgetStyle = 'B', wid
                                     </div>
                                     {todos.length < 2 && (
                                         <button 
-                                            onClick={() => {
-                                                console.log('加号被点击');
-                                                setIsAddingTodo(true);
-                                            }} 
+                                            onClick={() => setIsAddingTodo(true)} 
                                             className="absolute bottom-2 right-2 w-7 h-7 flex items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg hover:scale-110 active:scale-95 transition-all z-10 border border-white/10"
                                         >
                                             <Plus size={16} />
@@ -987,7 +984,7 @@ export function WidgetDashboard({ isDarkMode, sitesCount, widgetStyle = 'B', wid
                             {toolsMode === 'countdown' && (
                                 <div className="flex-1 flex flex-col h-full relative min-h-0">
                                     {isAddingCountdown ? (
-                                        <div className="absolute inset-x-1 top-0 bottom-auto z-20 bg-slate-800 border border-indigo-500/50 rounded-xl shadow-2xl p-2" style={{ height: '95px' }}>
+                                        <div className="absolute inset-x-1 top-1 z-20 bg-slate-800 border border-indigo-500/50 rounded-xl shadow-2xl p-2" style={{ height: '95px' }}>
                                             <div className="flex flex-col gap-1">
                                                 <input
                                                     type="text"
@@ -1014,7 +1011,7 @@ export function WidgetDashboard({ isDarkMode, sitesCount, widgetStyle = 'B', wid
                                             </div>
                                         </div>
                                     ) : null}
-                                    <div className="flex-1 overflow-y-auto custom-scrollbar pr-1 pb-10 min-h-0">
+                                    <div className={`flex-1 flex flex-col ${isAddingCountdown ? 'pt-[99px]' : 'justify-center'}`}>
                                         {countdowns.length > 0 ? (
                                             <div className="grid grid-cols-2 gap-1">
                                                 {countdowns.map(cd => {
@@ -1049,10 +1046,7 @@ export function WidgetDashboard({ isDarkMode, sitesCount, widgetStyle = 'B', wid
                                     </div>
                                     {countdowns.length < 2 && (
                                         <button 
-                                            onClick={() => {
-                                                console.log('倒计时加号被点击');
-                                                setIsAddingCountdown(true);
-                                            }} 
+                                            onClick={() => setIsAddingCountdown(true)} 
                                             className="absolute bottom-2 right-2 w-7 h-7 flex items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg hover:scale-110 active:scale-95 transition-all z-10 border border-white/10"
                                         >
                                             <Plus size={16} />
