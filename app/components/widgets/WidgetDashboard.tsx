@@ -707,11 +707,11 @@ export function WidgetDashboard({ isDarkMode, sitesCount, widgetStyle = 'B', wid
                                         const timeStr = time ? timeFormatter.format(time) : '--:--:--';
                                         const dateStr = time ? dateFormatter.format(time) : '';
                                         return (
-                                            <div key={idx} className="flex items-center gap-2 text-xs">
-                                                <span className={`w-11 text-left shrink-0 ${isDarkMode ? 'opacity-60' : 'text-slate-600'}`}>{tz.name}</span>
-                                                <span className={`w-8 text-right shrink-0 tabular-nums ${isDarkMode ? 'opacity-40' : 'text-slate-500'}`}>{dateStr}</span>
-                                                <span className="font-bold tabular-nums text-slate-900 dark:text-white">{timeStr}</span>
-                                            </div>
+                                            <div key={idx} className="flex items-center gap-1 text-xs">
+    <span className={`w-auto text-left shrink-0 ${isDarkMode ? 'opacity-60' : 'text-slate-600'}`}>{tz.name}</span>
+    <span className={`text-right shrink-0 tabular-nums ${isDarkMode ? 'opacity-40' : 'text-slate-500'}`}>{dateStr}</span>
+    <span className="font-bold tabular-nums text-slate-900 dark:text-white">{timeStr}</span>
+</div>
                                         );
                                     })}
                                 </div>
