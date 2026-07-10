@@ -95,14 +95,15 @@ export function EditModal({ site, categories, sites, isDarkMode, onClose, onSave
     const lastFetchedUrl = useRef<string>('');
 
     const lastSiteId = useRef<string | null | undefined>(undefined);
-    useEffect(() => {
-        // Only re-initialize when the site ID actually changes (prevents resetting form on re-renders)
-        if (lastSiteId.current !== site?.id) {
-            lastSiteId.current = site?.id;
-            const defaults = { desc: '', color: getRandomColor(), icon: 'Globe', iconType: 'auto', customIconUrl: '', titleColor: '', descColor: '', titleFont: '', descFont: '', titleSize: '', descSize: '', isHidden: false, type: 'site' as string, parentId: '' };
-            setF({ ...defaults, ...site });
-        }
-    }, [site]);
+useEffect(() => {
+    // Only re-initialize when the site ID actually changes (prevents resetting form on re-renders)
+    if (lastSiteId.current !== site?.id) {
+        lastSiteId.current = site?.id;
+        const defaults = { desc: '', color: getRandomColor(), icon: 'Globe', iconType: 'auto', customIconUrl: '', titleColor: '', descColor: '', titleFont: '', descFont: '', titleSize: '', descSize: '', isHidden: false, type: 'site' as string, parentId: '' };
+        // ✅ 修复：如果 site 为 undefined，只使用 defaults
+        setF({ ...defaults, ...(site || {}) });
+    }
+}, [site]);
 
     const inputClass = `w-full rounded-xl px-3 py-2.5 text-sm border transition-all focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none ${isDarkMode ? 'bg-slate-800/50 border-white/10 placeholder:text-slate-500' : 'bg-slate-50 border-slate-200 placeholder:text-slate-400'}`;
     const labelClass = "text-xs font-medium opacity-70 ml-1 mb-1.5 block";

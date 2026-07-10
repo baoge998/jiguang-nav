@@ -1338,7 +1338,7 @@ export default function AuroraNav() {
                   </main>
 
                   {/* HTML5 Content Section - Footer Top */}
-                  <div className={`w-full mb-8 flex ${appConfig.htmlConfig?.footerLayout === 'row' ? 'flex-row flex-wrap justify-center gap-4' : 'flex-col items-center gap-4'}`}>
+                  <div className={`w-full mb-0 flex ${appConfig.htmlConfig?.footerLayout === 'row' ? 'flex-row flex-wrap justify-center gap-4' : 'flex-col items-center gap-4'}`}>
                     <SortableContext items={(appConfig.htmlConfig?.footer || []).map((s: any) => s.id)} strategy={verticalListSortingStrategy}>
                       {(appConfig.htmlConfig?.footer || []).map((section: any, idx: number) => (
                         <SortableHtmlSection key={section.id || `footer-${idx}`} config={section} isDarkMode={isDarkMode} isLoggedIn={isLoggedIn} onContextMenu={handleHtmlContextMenu} />

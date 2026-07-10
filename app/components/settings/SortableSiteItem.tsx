@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSortable, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { GripVertical, Trash2, Edit3, Eye, EyeOff, ChevronRight, ChevronDown, FolderOpen, Folder, Plus } from 'lucide-react';
@@ -44,7 +44,7 @@ export function SortableSiteItem({ site, sites, isDarkMode, onEdit, onDelete, on
     const [iconState, setIconState] = useState(0);
     const [hasError, setHasError] = useState(false);
 
-    React.useEffect(() => {
+    useEffect(() => {
         setIconState(0);
         setHasError(false);
     }, [site.url, site.iconType, site.customIconUrl, site.icon, isOnline]);
